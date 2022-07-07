@@ -157,7 +157,7 @@ Static Function JsonVersion()
     Local nAsc   as numeric 
     Local nX     as numeric 
     Local nStart as numeric 
-    Local oBase  as object 
+    Local oBase  as json 
   
     cKey   := ""
     nAsc   := 64
