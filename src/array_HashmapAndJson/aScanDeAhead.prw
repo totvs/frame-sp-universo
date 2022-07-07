@@ -15,12 +15,14 @@ Local nStart    as numeric
 Local nI        as numeric
 
 RpcSetEnv('T1','D MG 01')
-aHeader := ApBuildHeader('SD1')
+
+aHeader := SD1->(DbStruct())
+
 nStart := Seconds()
 
 For nI := 1 to Len(aHeader)
 //mais de 1 coluna com o mesmo nome de variavel
-    If aScan(Aheader,{|x| Upper(Alltrim(x[2])) == Upper(Alltrim(aHeader[nI,2]))}, nI + 1)
+    If aScan(Aheader,{|x| Upper(Alltrim(x[1])) == Upper(Alltrim(aHeader[nI,1]))}, nI + 1)
         Conout('Achei')
     Endif 
 Next nI
@@ -48,12 +50,12 @@ Local cKey      as character
 
 RpcSetEnv('T1','D MG 01')
 oHash := FWHashMap():New()
-aHeader := ApBuildHeader('SD1')
+aHeader := SD1->(DbStruct())
 nStart := Seconds()
 
 For nI := 1 to Len(aHeader)
 //mais de 1 coluna com o mesmo nome de variavel
-    cKey := Upper(Alltrim(aHeader[nI,2]))
+    cKey := Upper(Alltrim(aHeader[nI,1]))
     If !oHash:ContainsKey(cKey)
         oHash:Put(cKey,'')
     Endif 
