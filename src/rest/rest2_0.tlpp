@@ -1,0 +1,22 @@
+#include "fw-tlpp-object.th"
+#include 'tlpp-core.th'
+#include 'tlpp-rest.th'
+#include 'protheus.ch'
+
+//-------------------------------------------------------------------
+/*/{Protheus.doc} myteste2_0
+Serviço que responde uma url ao REST 2.0
+@author  framework
+@since   01/02/2021
+@version 1.0
+/*/
+//-------------------------------------------------------------------
+@GET('/api/framework/v1/meuteste2_0/teste2_0')
+
+function myteste2_0()
+Local cReturn as character 
+cReturn := '{"result":"ok"}'
+
+oRest:SetResponse(cReturn)
+
+Return .T.
