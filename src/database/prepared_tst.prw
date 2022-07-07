@@ -1,6 +1,6 @@
 #include 'protheus.ch'
 
-Static _oPrepared
+Static _oPrepared as object 
 
 
 //-------------------------------------------------------------------
