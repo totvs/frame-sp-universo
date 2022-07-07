@@ -1,5 +1,5 @@
 #include 'protheus.ch'
-Static _xmlTeste
+Static _xmlTeste as character 
 
 //-------------------------------------------------------------------
 /*/{Protheus.doc} xmlstudy
