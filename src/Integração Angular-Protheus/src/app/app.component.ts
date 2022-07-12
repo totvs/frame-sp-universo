@@ -1,23 +1,6 @@
-import { AppTesteService } from './app-teste.service';
-import { ProAppConfigService, ProJsToAdvplService } from 'protheus-lib-core';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { finalize } from 'rxjs/operators';
-import {
-  PoBreadcrumb,
-  PoChartOptions,
-  PoChartSerie,
-  PoChartType,
-  PoDynamicViewField,
-  PoMenuItem,
-  PoModalComponent,
-} from '@po-ui/ng-components';
-import {
-  PoPageDynamicTableActions,
-  PoPageDynamicTableCustomAction,
-  PoPageDynamicTableCustomTableAction,
-  PoPageDynamicTableOptions,
-} from '@po-ui/ng-templates';
-import { SamplePoPageDynamicTableUsersService } from './SamplePoPageDynamicTableUsers.service';
+import { Component, OnInit } from '@angular/core';
+import { PoMenuItem } from '@po-ui/ng-components';
+
 
 @Component({
   selector: 'app-root',
@@ -25,11 +8,17 @@ import { SamplePoPageDynamicTableUsersService } from './SamplePoPageDynamicTable
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  @ViewChild('userDetailModal') userDetailModal: PoModalComponent;
-  @ViewChild('dependentsModal') dependentsModal: PoModalComponent;
-  @ViewChild('chartModal') chartModal: PoModalComponent;
+  readonly menus: Array<PoMenuItem> = [
+    { label: 'Home', link: "home", shortLabel:"Home", icon:"po-icon-home" },
+    { label: 'Análise de Dados', link: "dash", shortLabel:"Analise", icon:"po-icon-chart-columns" },
+  ];
 
-  ngOnInit():void{
+  ngOnInit(): void {
 
   }
+
+  private onClick() {
+    alert('Clicked in menu item');
+  }
+
 }

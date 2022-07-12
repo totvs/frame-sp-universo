@@ -1,0 +1,32 @@
+<po-toolbar p-title="Cadastro de Produtos"></po-toolbar>
+
+<po-page-dynamic-search
+  p-title="Cadastro de Produto"
+  (p-quick-search)="buscaProduto($event)"
+  (p-change-disclaimers)="clickDisclaimers($event)"
+  (p-advanced-search)="realizaBuscaAvancada($event)"
+  [p-actions]="opcoesTela"
+  [p-filters]="filtroBuscaAvancada"
+>
+  <po-table
+    #tableProdutos
+    [p-columns]="colunasDaTabela"
+    [p-items]="itensDaTabela"
+    [p-actions]="acoesTabela"
+    [p-loading]="carregandoTabela"
+    (p-show-more)="carregarMais()"
+  ></po-table>
+</po-page-dynamic-search>
+
+<po-modal
+  p-title="Manutenção de Produtos"
+  [p-primary-action]="confirmarModal"
+  [p-secondary-action]="cancelarModal"
+>
+  <po-dynamic-form
+    #dynamicForm
+    [p-fields]="formularioProduto"
+    [p-value]="produto"
+  >
+  </po-dynamic-form>
+</po-modal>
